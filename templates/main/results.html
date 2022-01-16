@@ -1,0 +1,39 @@
+{% extends 'common/base.html' %}
+{% block content %}
+
+
+<h3>List of results for {{ data.user_name }}</h3>
+<section class="section">
+    <table class="table is-hoverable">
+        <thead>
+            <tr>
+                <th class="sort" data-sort="no">No.</th>
+                <th class="sort" data-sort="ttl">Title</th>
+                <th class="sort" data-sort="time">Firsr Answer Time</th>
+                <th class="sort" data-sort="details">Details</th>
+            </tr>
+        </thead>
+        <tbody class="list">
+            {% for result in data.results %}
+            <tr>
+                <td class="no">{{ result.prob_num }}</td>
+                <td class="ttl">{{ result.prob_name }}</td>
+                <td class="time">{{ result.answer_time }}</td>
+                <td class="details" style="display:flex; flex-wrap:wrap;">
+                    {% for detail in result.details %}
+                    <div class="card" style="margin-right:4px; margin-bottom:4px">
+                        <div style="margin:4px">
+                            <p>{{ detail.date }}</p>
+                            <p>{{ detail.langage }}</p>
+                            <p>{{ detail.score }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+
+{% endblock %}

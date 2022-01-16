@@ -1,0 +1,16 @@
+{% extends 'common/base.html' %}
+
+
+{% block content %}
+
+<h3>Enter your paiza credentials</h3>
+{% if form %}
+<form action="{% url 'main:results' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">submit</button>
+</form>
+{% endif %}
+
+
+{% endblock %}
