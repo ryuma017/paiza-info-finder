@@ -1,1 +1,1 @@
-#paiza info finder
+# Django - paiza info finder
